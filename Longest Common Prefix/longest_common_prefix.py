@@ -1,14 +1,13 @@
 class Solution:
-    def longestCommonPrefix(self, strs: list[str]) -> str:
-        prefix = ""
-        i = 0
-        while i < len(strs)-1:
-            if strs[i][i] == strs[i+1][i]:
-                prefix += strs[i][i]
-            else: 
-                break
-            i+=1
-
+    def longestCommonPrefix(self, strs):
+        if not strs:
+            return ""
+        prefix = strs[0]
+        for string in strs[1:]:
+            while string.find(prefix) != 0:
+                prefix = prefix[:-1]
+                if not prefix:
+                    return ""
         return prefix
 
 sol = Solution()
